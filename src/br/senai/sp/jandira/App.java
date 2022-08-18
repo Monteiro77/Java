@@ -24,16 +24,19 @@ public class App {
 		System.out.println();
 		contaDoJoao.exibirDadosDaConta();
 		
-		contaDaMaria.depostar(50);
+		contaDaMaria.depositar(500);
 		contaDaMaria.exibirDadosDaConta();
 		
 		System.out.println();
 		
-		contaDaMaria.sacar(400);
-		contaDaMaria.exibirDadosDaConta();
+
 		
-		contaDaMaria.depostar(800);
+		//Transferência da conta da maria e joão
+		
+		contaDaMaria.transferir(850, contaDoJoao);
 		contaDaMaria.exibirDadosDaConta();
+		contaDoJoao.exibirDadosDaConta();
+		
 	}
 
 }

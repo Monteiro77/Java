@@ -8,20 +8,32 @@ public class Conta {
 	public String tipoConta;
 	
 	
-	public void transferir(){
+	public void transferir(double valorTransferencia, Conta contaDestino){
+		
+		boolean ocorreuSaque = sacar(valorTransferencia);
+		
+		if(ocorreuSaque) {
+			contaDestino.depositar(valorTransferencia);
+		} else {
+			System.out.println("Não foi possivel fazer a transação");
+		}
+		
+		
+		
 		
 	}
-	public void sacar(double valorSacar){
+	public boolean sacar(double valorSacar){
 		if (saldo >= valorSacar) {
 			saldo = saldo - valorSacar;
-			
+			return true;
 		}else {
-			System.out.println("Saldo indisponível,Vai trabalhar vagabundo!!!!!!!");
+			System.out.println("Saldo indisponível!!!!!!!");
+			return false;
 		}
 		
 		
 	}
-	public void depostar(double valorDeposito){
+	public void depositar(double valorDeposito){
 		saldo = saldo + valorDeposito;
 		
 	}
@@ -31,6 +43,7 @@ public class Conta {
 		System.out.printf("Nome do titular: %s\n", titular);
 		System.out.printf("Numero da conta: %s\n", numero);
 		System.out.printf("Saldo da conta: %s\n", saldo);
+		System.out.println("-----------------------------");
 	}
 	
 
